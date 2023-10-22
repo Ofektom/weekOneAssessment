@@ -1,4 +1,4 @@
 package org.example.department.entities;
 
-public class NonAcademic {
+public class NonAcademic extends Staff{
 }
