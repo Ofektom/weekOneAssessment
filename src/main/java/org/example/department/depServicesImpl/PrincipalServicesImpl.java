@@ -1,24 +1,47 @@
 package org.example.department.depServicesImpl;
 
 import org.example.department.depServices.PrincipalServices;
-import org.example.department.entities.Course;
-import org.example.department.entities.Payment;
-import org.example.department.entities.Staff;
-import org.example.department.entities.Student;
+import org.example.department.entities.*;
 import org.example.department.enums.PaymentStatus;
+
+import java.util.List;
 
 public class PrincipalServicesImpl implements PrincipalServices {
     @Override
-    public String admits(Student student, Payment payment){
-        if(payment.getStatus().equals(PaymentStatus.CLEARED) && Student.listOfStudents.contains(student.getAdmissionNumber())){
-            return student.getFirstName()+" "+student.getLastName()+ "Admitted";
+    public String admits(Student student) {
+        if (student.getAge() <= 12) {
+            Student.listOfStudents.add(student);
+            return student.getFirstName() + " " + student.getLastName() + " is admitted";
+        } else {
+            return "Not eligible";
         }
-        return "Not admitted";
     }
-    Student expels(Student student);
-    void employs(Staff staff);
-    void retrench(Staff staff);
+    @Override
+    public String expels(Result result){
+        Student student= new Student();
+        if(result.getAverage()< 30){
+           List<Assessment> ass = result.getAssessment();
+            for (Assessment assessment : ass) {
+                student = assessment.getStudent();
+                ass.remove(student);
+            };
+        }
+        return student.getFirstName() + student.getLastName();
+    }
+    @Override
+    public void employs(Staff staff){
 
-    void assignsDuties(Staff staff);
-    void addsCourse(Course course);
+    }
+    @Override
+    public void retrench(Staff staff){
+
+    }
+    @Override
+    public void assignsDuties(Staff staff){
+
+    }
+    @Override
+    public void addsCourse(Course course){
+
+    }
 }

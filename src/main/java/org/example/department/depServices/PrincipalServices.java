@@ -1,13 +1,10 @@
 package org.example.department.depServices;
 
-import org.example.department.entities.Course;
-import org.example.department.entities.Payment;
-import org.example.department.entities.Staff;
-import org.example.department.entities.Student;
+import org.example.department.entities.*;
 
 public interface PrincipalServices {
-    String admits(Student student, Payment payment);
-    Student expels(Student student);
+    String admits(Student student);
+    String expels(Result result);
     void employs(Staff staff);
     void retrench(Staff staff);
 

@@ -6,7 +6,7 @@ import java.util.Objects;
 public abstract class User {
     private String firstName;
     private String lastName;
-    private LocalDate dateOfBirth;
+    private int age;
     private String gender;
     private Address address;
     private Long phone;
@@ -19,10 +19,10 @@ public abstract class User {
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName, LocalDate dateOfBirth, String gender, Address address, Long phone) {
+    public User(String firstName, String lastName, int age, String gender, Address address, Long phone) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
+        this.age = age;
         this.gender = gender;
         this.address = address;
         this.phone = phone;
@@ -44,12 +44,12 @@ public abstract class User {
         this.lastName = lastName;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public int getAge() {
+        return age;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getGender() {
@@ -81,7 +81,7 @@ public abstract class User {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", address=" + address +
                 ", phone=" + phone +
@@ -93,11 +93,11 @@ public abstract class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(dateOfBirth, user.dateOfBirth) && Objects.equals(gender, user.gender) && Objects.equals(address, user.address) && Objects.equals(phone, user.phone);
+        return Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(age, user.age) && Objects.equals(gender, user.gender) && Objects.equals(address, user.address) && Objects.equals(phone, user.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dateOfBirth, gender, address, phone);
+        return Objects.hash(firstName, lastName, age, gender, address, phone);
     }
 }

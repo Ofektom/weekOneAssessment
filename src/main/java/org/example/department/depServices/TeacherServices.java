@@ -6,5 +6,6 @@ import org.example.department.entities.Student;
 
 public interface TeacherServices {
     void teaches(Course course);
-    void assesses(Assessment assessment, Student student);
+    Long assesses(Assessment assessment, Student student);
+    void promotesStudent(Student student, Assessment assessment);
 }

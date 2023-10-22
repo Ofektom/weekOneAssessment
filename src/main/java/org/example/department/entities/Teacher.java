@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Teacher extends Staff{
-    private List<Classes> classes = new ArrayList<>();
-    private Set<Course> courses = new HashSet<>();
+    private List<Classes> classes;
+    private Set<Course> courses;
     private String specialization;
 }
