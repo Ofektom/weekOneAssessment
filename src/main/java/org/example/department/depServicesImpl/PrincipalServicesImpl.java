@@ -8,19 +8,18 @@ import java.util.List;
 
 public class PrincipalServicesImpl implements PrincipalServices {
     @Override
-    public String admits(Student student) {
-        if (student.getAge() <= 12) {
-            Student.listOfStudents.add(student);
-            return student.getFirstName() + " " + student.getLastName() + " is admitted";
+    public String admits(Applicant applicant) {
+        if (applicant.getAge() <= 12) {
+            Student.listOfStudents.add(applicant);
+            return applicant.getFirstName() + " " + applicant.getLastName() + " is admitted";
         } else {
             return "Not eligible";
         }
     }
     @Override
-    public String expels(Result result){
-        Student student= new Student();
-        if(result.getAverage()< 30){
-           List<Assessment> ass = result.getAssessment();
+    public String expels(Student student, Result result){
+        if(student.equals(result.getStudent()) && result.getAverage() <= 10){
+           List<Assessment> ass = Assessment.assessmentList;
             for (Assessment assessment : ass) {
                 student = assessment.getStudent();
                 ass.remove(student);

@@ -5,38 +5,36 @@ import java.util.List;
 import java.util.Objects;
 
 public class Result {
-    private List<Assessment> assessment;
-    private double Average;
+    private Student student;
+    private double average;
 
     public Result() {
     }
 
-    public Result(List<Assessment> assessment, double average) {
-        this.assessment = assessment;
-        Average = average;
+    public Result(Student student, double average) {
+        this.student = student;
     }
 
-    public List<Assessment> getAssessment() {
-        return assessment;
-    }
-
-    public void setAssessment(List<Assessment> assessment) {
-        this.assessment = assessment;
-    }
 
     public double getAverage() {
-        return Average;
+        return average;
     }
 
     public void setAverage(double average) {
-        Average = average;
+        this.average= average;
+    }
+    public void setStudent(Student student){
+        this.student = student;
+    }
+    public Student getStudent(){
+        return student;
     }
 
-        @Override
+    @Override
     public String toString() {
         return "Result{" +
-                "assessment=" + assessment +
-                ", Average=" + Average +
+                "student=" + student +
+                ", average=" + average +
                 '}';
     }
 
@@ -45,11 +43,11 @@ public class Result {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Result result = (Result) o;
-        return Double.compare(Average, result.Average) == 0 && Objects.equals(assessment, result.assessment);
+        return Double.compare(average, result.average) == 0 && Objects.equals(student, result.student);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(assessment, Average);
+        return Objects.hash(student, average);
     }
 }

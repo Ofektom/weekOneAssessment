@@ -4,24 +4,32 @@ import java.util.*;
 
 public class Student extends User{
     public static List<Student> listOfStudents = new ArrayList<>();
-    private Long admissionNumber;
+    private String admissionNumber;
     private Classes classes;
     private Set<Course> courses;
 
     public Student() {
     }
 
-    public Student(Long admissionNumber, Classes classes, Set<Course> courses) {
+    public Student(String admissionNumber, Classes classes, Set<Course> courses) {
         this.admissionNumber = admissionNumber;
         this.classes = classes;
         this.courses = courses;
     }
 
-    public Long getAdmissionNumber() {
+    public static List<Student> getListOfStudents() {
+        return listOfStudents;
+    }
+
+    public static void setListOfStudents(List<Student> listOfStudents) {
+        Student.listOfStudents = listOfStudents;
+    }
+
+    public String getAdmissionNumber() {
         return admissionNumber;
     }
 
-    public void setAdmissionNumber(Long admissionNumber) {
+    public void setAdmissionNumber(String admissionNumber) {
         this.admissionNumber = admissionNumber;
     }
 
@@ -29,7 +37,7 @@ public class Student extends User{
         return classes;
     }
 
-    public void setClasses(Classes classes) {
+    public void setClasses (Classes classes) {
         this.classes = classes;
     }
 
@@ -41,10 +49,11 @@ public class Student extends User{
         this.courses = courses;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
-                "admissionNumber=" + admissionNumber +
+                "admissionNumber='" + admissionNumber + '\'' +
                 ", classes=" + classes +
                 ", courses=" + courses +
                 '}';
@@ -55,7 +64,7 @@ public class Student extends User{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(admissionNumber, student.admissionNumber) && Objects.equals(classes, student.classes) && Objects.equals(courses, student.courses);
+        return Objects.equals(admissionNumber, student.admissionNumber) && Objects.equals(classes, student.classes) && Objects.equals(courses, student.courses) ;
     }
 
     @Override

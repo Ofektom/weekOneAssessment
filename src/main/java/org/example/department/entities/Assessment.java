@@ -12,17 +12,17 @@ public class Assessment {
     private Course course;
     private Classes classes;
     private AssessType type;
-    private Long Score;
+    private int score;
 
     public Assessment() {
     }
 
-    public Assessment(Student student, Course course, Classes classes, AssessType type, Long score) {
+    public Assessment(Student student, Course course, Classes classes, AssessType type, int score) {
         this.student = student;
         this.course = course;
         this.classes = classes;
         this.type = type;
-        Score = score;
+        this.score = score;
     }
 
     public Student getStudent() {
@@ -57,12 +57,12 @@ public class Assessment {
         this.type = type;
     }
 
-    public Long getScore() {
-        return Score;
+    public int getScore() {
+        return score;
     }
 
-    public void setScore(Long score) {
-        Score = score;
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Assessment {
                 ", course=" + course +
                 ", classes=" + classes +
                 ", type=" + type +
-                ", Score=" + Score +
+                ", score=" + score +
                 '}';
     }
 
@@ -81,11 +81,11 @@ public class Assessment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Assessment that = (Assessment) o;
-        return Objects.equals(student, that.student) && Objects.equals(course, that.course) && Objects.equals(classes, that.classes) && type == that.type && Objects.equals(Score, that.Score);
+        return Objects.equals(student, that.student) && Objects.equals(course, that.course) && Objects.equals(classes, that.classes) && type == that.type && Objects.equals(score, that.score);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(student, course, classes, type, Score);
+        return Objects.hash(student, course, classes, type, score);
     }
 }
