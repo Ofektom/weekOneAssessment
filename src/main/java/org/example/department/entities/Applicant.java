@@ -1,8 +1,11 @@
 package org.example.department.entities;
 
+import org.example.department.enums.Classes;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 public class Applicant extends Student{
     private Payment applicationFee;
@@ -11,9 +14,10 @@ public class Applicant extends Student{
     public Applicant() {
     }
 
-    public Applicant(Payment applicationFee, Classes classes) {
+    public Applicant(String admissionNumber, Classes classes, Set<Course> courses, Payment applicationFee, Classes classes1) {
+        super(admissionNumber, classes, courses);
         this.applicationFee = applicationFee;
-        this.classes = classes;
+        this.classes = classes1;
     }
 
     public Payment getApplicationFee() {
@@ -37,6 +41,8 @@ public class Applicant extends Student{
         return "Applicant{" +
                 "applicationFee=" + applicationFee +
                 ", classes=" + classes +
+                ", getFirstName=" + getFirstName() +
+                ", getLastName=" + getLastName() +
                 '}';
     }
 

@@ -1,25 +1,26 @@
 package org.example.department.entities;
 
 import org.example.department.enums.AssessType;
+import org.example.department.enums.Classes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Assessment {
-    public static List<Assessment> assessmentList = new ArrayList<>();
+    public static Set<Assessment> assessmentList = new HashSet<>();
     private Student student;
     private Course course;
+    private Set<Question> questions;
     private Classes classes;
     private AssessType type;
-    private int score;
+    private Integer score;
 
     public Assessment() {
     }
 
-    public Assessment(Student student, Course course, Classes classes, AssessType type, int score) {
+    public Assessment(Student student, Course course, Set<Question> questions, Classes classes, AssessType type, Integer score) {
         this.student = student;
         this.course = course;
+        this.questions = questions;
         this.classes = classes;
         this.type = type;
         this.score = score;
@@ -41,6 +42,14 @@ public class Assessment {
         this.course = course;
     }
 
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
     public Classes getClasses() {
         return classes;
     }
@@ -57,12 +66,30 @@ public class Assessment {
         this.type = type;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public static double calculateAverageScore(Student student){
+        double totalScore = 0.0;
+        double average = 0.0;
+        int count = 0;
+        for (Assessment assessment: Assessment.assessmentList){
+            if (assessment.getStudent().getAdmissionNumber().equals(student.getAdmissionNumber())){
+                totalScore += assessment.getScore();
+                count++;
+            }
+        }
+        try{
+            average = totalScore/count;
+        }catch (ArithmeticException e){
+            System.out.println("Division by zero not allowed");
+        }
+        return average;
     }
 
     @Override
@@ -70,6 +97,7 @@ public class Assessment {
         return "Assessment{" +
                 "student=" + student +
                 ", course=" + course +
+                ", questions=" + questions +
                 ", classes=" + classes +
                 ", type=" + type +
                 ", score=" + score +
@@ -81,11 +109,11 @@ public class Assessment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Assessment that = (Assessment) o;
-        return Objects.equals(student, that.student) && Objects.equals(course, that.course) && Objects.equals(classes, that.classes) && type == that.type && Objects.equals(score, that.score);
+        return Objects.equals(student, that.student) && Objects.equals(course, that.course) && Objects.equals(questions, that.questions) && classes == that.classes && type == that.type && Objects.equals(score, that.score);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(student, course, classes, type, score);
+        return Objects.hash(student, course, questions, classes, type, score);
     }
 }

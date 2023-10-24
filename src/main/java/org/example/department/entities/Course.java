@@ -1,10 +1,12 @@
 package org.example.department.entities;
 
+import org.example.department.enums.CourseTitle;
+
 import java.util.*;
 
 public class Course {
     public static Set<Course> listOfCourses = new HashSet<>();
-    private String title;
+    private CourseTitle title;
     private Teacher teacher;
     private String content;
     private String duration;
@@ -12,18 +14,18 @@ public class Course {
     public Course() {
     }
 
-    public Course(String title, Teacher teacher, String content, String duration) {
+    public Course(CourseTitle title, Teacher teacher, String content, String duration) {
         this.title = title;
         this.teacher = teacher;
         this.content = content;
         this.duration = duration;
     }
 
-    public String getTitle() {
+    public CourseTitle getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(CourseTitle title) {
         this.title = title;
     }
 

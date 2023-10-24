@@ -1,19 +1,21 @@
 package org.example.department.entities;
 
+import org.example.department.enums.State;
+
 import java.util.Objects;
 
 public class Address {
     private Long houseNumber;
     private String streetName;
     private String city;
-    private String state;
+    private State state;
     private String country;
     private Long zipCode;
 
     public Address() {
     }
 
-    public Address(Long houseNumber, String streetName, String city, String state) {
+    public Address(Long houseNumber, String streetName, String city, State state) {
         this.houseNumber = houseNumber;
         this.streetName = streetName;
         this.city = city;
@@ -44,11 +46,11 @@ public class Address {
         this.city = city;
     }
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
         this.state = state;
     }
 

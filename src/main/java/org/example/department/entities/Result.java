@@ -1,33 +1,33 @@
 package org.example.department.entities;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
 
 public class Result {
     private Student student;
-    private double average;
+    private Double average;
 
     public Result() {
     }
 
-    public Result(Student student, double average) {
+    public Result(Student student, Double average) {
+        this.student = student;
+        this.average = average;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
         this.student = student;
     }
 
-
-    public double getAverage() {
+    public Double getAverage() {
         return average;
     }
 
-    public void setAverage(double average) {
-        this.average= average;
-    }
-    public void setStudent(Student student){
-        this.student = student;
-    }
-    public Student getStudent(){
-        return student;
+    public void setAverage(Double average) {
+        this.average = average;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Result {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Result result = (Result) o;
-        return Double.compare(average, result.average) == 0 && Objects.equals(student, result.student);
+        return Objects.equals(student, result.student) && Objects.equals(average, result.average);
     }
 
     @Override

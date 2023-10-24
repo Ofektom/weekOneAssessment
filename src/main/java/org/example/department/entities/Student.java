@@ -1,12 +1,13 @@
 package org.example.department.entities;
 
+import org.example.department.enums.Classes;
+
 import java.util.*;
 
 public class Student extends User{
-    public static List<Student> listOfStudents = new ArrayList<>();
+    public static List<Student> studentRegister = new ArrayList<>();
     private String admissionNumber;
     private Classes classes;
-    private Set<Course> courses;
 
     public Student() {
     }
@@ -14,15 +15,6 @@ public class Student extends User{
     public Student(String admissionNumber, Classes classes, Set<Course> courses) {
         this.admissionNumber = admissionNumber;
         this.classes = classes;
-        this.courses = courses;
-    }
-
-    public static List<Student> getListOfStudents() {
-        return listOfStudents;
-    }
-
-    public static void setListOfStudents(List<Student> listOfStudents) {
-        Student.listOfStudents = listOfStudents;
     }
 
     public String getAdmissionNumber() {
@@ -41,21 +33,12 @@ public class Student extends User{
         this.classes = classes;
     }
 
-    public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
-
 
     @Override
     public String toString() {
         return "Student{" +
                 "admissionNumber='" + admissionNumber + '\'' +
                 ", classes=" + classes +
-                ", courses=" + courses +
                 '}';
     }
 
@@ -64,11 +47,11 @@ public class Student extends User{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(admissionNumber, student.admissionNumber) && Objects.equals(classes, student.classes) && Objects.equals(courses, student.courses) ;
+        return Objects.equals(admissionNumber, student.admissionNumber) && Objects.equals(classes, student.classes) ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(admissionNumber, classes, courses);
+        return Objects.hash(admissionNumber);
     }
 }
