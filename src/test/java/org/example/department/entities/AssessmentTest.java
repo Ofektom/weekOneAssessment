@@ -2,8 +2,10 @@ package org.example.department.entities;
 
 import junit.framework.TestCase;
 import org.example.department.servicesImpl.PrincipalServicesImpl;
+import org.junit.Test;
 
 public class AssessmentTest extends TestCase {
+
 
     public void testCalculateAverageScore() {
        Student student = new Student();
@@ -23,6 +25,7 @@ public class AssessmentTest extends TestCase {
         double result = Assessment.calculateAverageScore(student);
         double expectedResult = (0.0+72+83+91)/3;
         assertFalse(result!=expectedResult);
+        assertEquals("SD1", student.getAdmissionNumber());
 
     }
 }

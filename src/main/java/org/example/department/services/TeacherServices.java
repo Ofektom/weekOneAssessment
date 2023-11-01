@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface TeacherServices {
 
-    String teach(Course course);
+    Course teach(Course course);
     Long assess(Assessment assessment, Student student);
     Map<Student, StudentReport> promoteStudent(Student student, StudentReport studentReport);
 }

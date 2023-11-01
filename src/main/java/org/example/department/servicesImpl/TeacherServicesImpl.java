@@ -13,8 +13,8 @@ public class TeacherServicesImpl implements TeacherServices {
 
     public static Map<Student, StudentReport> studentLedger = new HashMap<>();
     @Override
-    public String teach(Course course){
-        return course.getContent();
+    public Course teach(Course course){
+        return course;
     }
     @Override
     public Long assess(Assessment assessment, Student student){
