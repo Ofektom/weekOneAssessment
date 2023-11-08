@@ -25,12 +25,12 @@ public class Teacher extends Staff{
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                ", teacherId='" + teacherId + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                '}' +
+        return
+                "  " + teacherId +
+                        ", " + getFirstName() +
+                        ", " + getLastName() +
+                        ", " + getEmail() +
+                '}'+
                 "\n";
     }
 
@@ -66,10 +66,10 @@ public class Teacher extends Staff{
                 switch(i){
                     case 0:ID= data[i];
                         break;
-                    case 4:email=data[i];
+                    case 1:email=data[i];
                         break;
-                    case 1:firstName=data[i];
-                    case 2:lastName=data[i];
+                    case 2:firstName=data[i];
+                    case 4:lastName=data[i];
                 }
             }
             Teacher teacher = Teacher.builder()

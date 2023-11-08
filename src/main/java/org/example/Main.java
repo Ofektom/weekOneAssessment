@@ -1,16 +1,12 @@
 package org.example;
 
-import org.example.department.enums.Role;
-import org.example.department.servicesImpl.PrincipalServicesImpl;
-import org.example.department.servicesImpl.TeacherServicesImpl;
 import org.example.department.entities.*;
-import org.example.department.enums.ClassName;
-import org.example.department.enums.CourseTitle;
+import org.example.department.utility.SaveStudentInfo;
 import org.example.department.utility.FileInputServiceImpl;
+import org.example.department.utility.SaveTeacherInfo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -27,6 +23,14 @@ public class Main {
         teacher.inputDetails(reader2);
 
         System.out.println(Teacher.teacherList);
+
+        String fileName = "/Users/mac/Downloads/studentInfo.csv";
+        SaveStudentInfo outputImp = new SaveStudentInfo();
+        outputImp.saveFile(Student.studentRegister, fileName);
+
+        String fileName2 = "/Users/mac/Downloads/teacherInfo.csv";
+        SaveTeacherInfo teacherInfo = new SaveTeacherInfo();
+        teacherInfo.saveFile(Teacher.teacherList, fileName2);
 //        BigDecimal salary = new BigDecimal(1_332_321.32342);
 //
 //        Teacher teacher1 = new Teacher();

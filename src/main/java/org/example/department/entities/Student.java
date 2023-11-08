@@ -26,17 +26,16 @@ public class Student extends User{
 
     @Override
     public String toString() {
-        return "Student{" +
-                " StudentId= '" + getId() + '\'' +
-                ", firstName= '" + getFirstName() + '\'' +
-                ", lastName= '" + getLastName() + '\'' +
-                ", email= '" + getEmail() + '\'' +
-                ", gradeLevel= '" + gradeLevel + '\'' +
-                ", guardianEmail1= '" + guardianEmail1 + '\'' +
-                ", guardianEmail2= '" + guardianEmail2 + '\'' +
-                ", isArchived= '" + isArchived + '\'' +
-                ", isDeleted= '" + isDeleted + '\'' +
-                "}" +
+        return
+                "  " + getId() +
+                ", " + getFirstName() +
+                ", " + getLastName() +
+                ", " + getEmail() +
+                ", " + gradeLevel +
+                ", " + guardianEmail1 +
+                ", " + guardianEmail2 +
+                ", " + isArchived +
+                ", " + isDeleted +
                 "\n";
     }
     public void getDetails(BufferedReader bufReader) throws IOException {
